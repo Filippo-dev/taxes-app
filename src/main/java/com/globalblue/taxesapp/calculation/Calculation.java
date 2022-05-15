@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Calculation {
     private BigDecimal net;
-    private BigDecimal gross;
+    private String vatRate;
     private BigDecimal VAT;
-    private BigDecimal vatRate;
+    private BigDecimal gross;
 }

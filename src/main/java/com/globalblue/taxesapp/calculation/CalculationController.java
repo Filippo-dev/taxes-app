@@ -26,4 +26,14 @@ public class CalculationController {
     public Calculation getFromNet(@RequestParam("net") String net, @RequestParam("vatRate") String vatRate){
         return calculationService.getFromNet(net,vatRate);
     }
+
+    @GetMapping(path = "/getFromGross")
+    public Calculation getFromGross(@RequestParam("gross") String gross, @RequestParam("vatRate") String vatRate){
+        return calculationService.getFromGross(gross,vatRate);
+    }
+
+    @GetMapping(path = "/getFromVAT")
+    public Calculation getFromVAT(@RequestParam("VAT") String VAT, @RequestParam("vatRate") String vatRate){
+        return calculationService.getFromVAT(VAT,vatRate);
+    }
 }
