@@ -14,6 +14,12 @@ import static java.math.BigDecimal.ONE;
 @Service
 public class CalculationService {
 
+    /**
+     * @param net
+     * @param vatRate
+     * Calculate gross and VAT
+     * @return
+     */
     public Calculation getFromNet(String net, String vatRate) {
         validateData(net, vatRate);
 
@@ -30,6 +36,12 @@ public class CalculationService {
         return new Calculation(convertToEuro(bigDecimalNet), vatRate + "%", convertToEuro(bigDecimalVAT), convertToEuro(bigDecimalGross));
     }
 
+    /**
+     * @param gross
+     * @param vatRate
+     * Calculate VAT and net
+     * @return
+     */
     public Calculation getFromGross(String gross, String vatRate) {
         validateData(gross, vatRate);
 
@@ -47,6 +59,12 @@ public class CalculationService {
         return new Calculation(convertToEuro(bigDecimalNet), vatRate + "%", convertToEuro(bigDecimalVAT), convertToEuro(bigDecimalGross));
     }
 
+    /**
+     * @param VAT
+     * @param vatRate
+     * Calculate net and gross
+     * @return
+     */
     public Calculation getFromVAT(String VAT, String vatRate) {
         validateData(VAT, vatRate);
 
