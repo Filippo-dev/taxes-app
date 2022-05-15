@@ -82,7 +82,7 @@ public class CalculationService {
         return new Calculation(convertToEuro(bigDecimalNet), vatRate + "%", convertToEuro(bigDecimalVAT), convertToEuro(bigDecimalGross));
     }
 
-    private void validateData(String amount, String vatRate) {
+    public void validateData(String amount, String vatRate) {
         try {
             Double.parseDouble(amount);
         } catch (NumberFormatException e) {
