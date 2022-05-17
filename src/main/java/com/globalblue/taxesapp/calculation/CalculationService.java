@@ -1,6 +1,8 @@
 package com.globalblue.taxesapp.calculation;
 
 import com.globalblue.taxesapp.exception.ApiRequestException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -13,6 +15,8 @@ import static java.math.BigDecimal.ONE;
 
 @Service
 public class CalculationService {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(CalculationService.class);
 
     /**
      * @param net
@@ -55,7 +59,6 @@ public class CalculationService {
         // VAT = gross - net
         BigDecimal bigDecimalVAT = bigDecimalGross.subtract(bigDecimalNet);
 
-        // set 2 decimal places
         return new Calculation(convertToEuro(bigDecimalNet), vatRate + "%", convertToEuro(bigDecimalVAT), convertToEuro(bigDecimalGross));
     }
 
@@ -78,7 +81,6 @@ public class CalculationService {
         // gross = VAT + net
         BigDecimal bigDecimalGross = bigDecimalVAT.add(bigDecimalNet);
 
-        // set 2 decimal places
         return new Calculation(convertToEuro(bigDecimalNet), vatRate + "%", convertToEuro(bigDecimalVAT), convertToEuro(bigDecimalGross));
     }
 

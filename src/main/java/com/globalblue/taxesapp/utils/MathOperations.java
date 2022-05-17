@@ -20,8 +20,9 @@ public class MathOperations {
 
     /**
      * @param rawValue
-     * Round to 2 decimal places,
-     * Force 2 decimal places
+     * Convert a Big Decimal to a euro value:
+     * *Round to 2 decimal places,
+     * *Force 2 decimal places
      * @return
      */
     public static BigDecimal convertToEuro(BigDecimal rawValue) {
